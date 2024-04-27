@@ -1,0 +1,91 @@
+<div>
+    <!-- Formulario para registro de empleados -->
+    <form class="max-w-xl mx-auto mt-5" (ngSubmit)="submitForm()" [formGroup]="employeeForm">
+        <!-- Primer Apellido -->
+        <div class="mb-4">
+            <label for="surname" class="block mb-2">Primer Apellido:</label>
+            <input type="text" id="surname" formControlName="surname" class="w-full p-2 border rounded" required maxlength="20">
+        </div>
+    
+        <!-- Segundo Apellido -->
+        <div class="mb-4">
+            <label for="secondsurname" class="block mb-2">Segundo Apellido:</label>
+            <input type="text" id="secondsurname" formControlName="secondsurname" class="w-full p-2 border rounded" required maxlength="20">
+        </div>
+    
+        <!-- Primer Nombre -->
+        <div class="mb-4">
+            <label for="firstname" class="block mb-2">Primer Nombre:</label>
+            <input type="text" id="firstname" formControlName="firstname" class="w-full p-2 border rounded" required maxlength="20">
+        </div>
+    
+        <!-- Otros Nombres -->
+        <div class="mb-4">
+            <label for="othersName" class="block mb-2">Otros Nombres:</label>
+            <input type="text" id="othersName" formControlName="othersName" class="w-full p-2 border rounded" maxlength="50">
+        </div>
+    
+        <!-- País del empleo -->
+        <div class="mb-4">
+            <label for="countryEmployment" class="block mb-2">País del empleo:</label>
+            <select id="countryEmployment" formControlName="countryEmployment" class="w-full p-2 border rounded" required>
+                <option value="Colombia">Colombia</option>
+                <option value="Estados Unidos">Estados Unidos</option>
+            </select>
+        </div>
+    
+        <!-- Tipo de Identificación -->
+        <div class="mb-4">
+            <label for="typeIdentification" class="block mb-2">Tipo de Identificación:</label>
+            <select id="typeIdentification" formControlName="typeIdentification" class="w-full p-2 border rounded" required>
+                <option value="Cédula de Ciudadanía">Cédula de Ciudadanía</option>
+                <option value="Cédula de Extranjería">Cédula de Extranjería</option>
+                <option value="Pasaporte">Pasaporte</option>
+                <option value="Permiso Especial">Permiso Especial</option>
+            </select>
+        </div>
+    
+        <!-- Número de Identificación -->
+        <div class="mb-4">
+            <label for="identificationnumber" class="block mb-2">Número de Identificación:</label>
+            <input type="text" id="identificationnumber" formControlName="identificationnumber" class="w-full p-2 border rounded" required maxlength="20">
+        </div>
+    
+        <!-- Correo electrónico -->
+        <div class="mb-4">
+            <label class="block mb-2">Correo electrónico:</label>
+            <input type="email" id="email" formControlName="email" class="w-full p-2 border rounded" required maxlength="300" [pattern]="'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'">
+        </div>
+    
+        <!-- Fecha de ingreso -->
+        <div class="mb-4">
+            <label for="admissiondate" class="block mb-2">Fecha de ingreso:</label>
+            <input type="date" id="admissiondate" formControlName="admissiondate" class="w-full p-2 border rounded" [max]="maxDate">
+        </div>
+    
+        <!-- Área -->
+        <div class="mb-4">
+            <label for="area" class="block mb-2">Área:</label>
+            <select id="area" formControlName="area" class="w-full p-2 border rounded" required>
+                <option value="Administración">Administración</option>
+                <option value="Financiera">Financiera</option>
+                <option value="Compras">Compras</option>
+                <option value="Infraestructura">Infraestructura</option>
+                <option value="Operación">Operación</option>
+                <option value="Talento Humano">Talento Humano</option>
+                <option value="Servicios Varios">Servicios Varios</option>
+            </select>
+        </div>
+    
+        <!-- Botón de enviar -->
+        <div class="mt-8 mb-5">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Registrar Empleado</button>
+        </div>
+    </form>
+    <div class="fixed inset-y-0 left-0 w-40 bg-teal-400">
+        <button class="bg-teal-400 hover:bg-white text-white hover:text-teal-600 px-2 py-1 rounded-md text-sm mt-4" (click)="goToEmployeeHome()">
+            Volver al inicio
+        </button>
+    </div>
+    <div class="fixed inset-y-0 right-0 w-40 bg-teal-400"></div>
+</div>

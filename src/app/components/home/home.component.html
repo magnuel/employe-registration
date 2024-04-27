@@ -1,0 +1,59 @@
+<!-- Header de la pagina -->
+<div class="bg-teal-400 py-8 text-white text-center">
+    <h1 class="text-5xl font-bold">Global Tecnologías Academy</h1>
+</div>
+<div class="container mx-auto mt-8">
+    <!-- Controles de filtrado -->
+    <div class="mb-4">
+        <input type="text" placeholder="Buscar empleados" [(ngModel)]="searchTerm" (input)="applyFilters()" class="p-2 border rounded-md w-full">
+    </div>
+    <div class="mb-4 flex">
+        <button class="bg-teal-400 text-white hover:bg-teal-00 px-4 py-2 rounded-md ml-2" (click)="goToEmployeeForm()">Registrar nuevo empleado</button>
+    </div>
+    <!-- Lista de empleados con tabla -->
+    <table class="shadow-lg rounded-lg overflow-hidden bg-white">
+        <thead class="bg-gray-200 text-gray-700">
+            <tr>
+                <th class="py-2 px-4">Primer Apellido</th>
+                <th class="py-2 px-4">Segundo Apellido</th>
+                <th class="py-2 px-4">Primer Nombre</th>
+                <th class="py-2 px-4">Otros Nombres</th>
+                <th class="py-2 px-4">País del empleo</th>
+                <th class="py-2 px-4">Tipo de Identificación</th>
+                <th class="py-2 px-4">Número de Identificación</th>
+                <th class="py-2 px-4">Correo electrónico</th>
+                <th class="py-2 px-4">Fecha de ingreso</th>
+                <th class="py-2 px-4">Área</th>
+                <th class="py-2 px-4">Estado</th>
+                <th class="py-2 px-4">Fecha y hora de registro</th>
+                <th class="py-2 px-4">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterar sobre la lista de empleados y mostrar cada empleado en una fila de la tabla -->
+            <tr *ngFor="let employee of filteredEmployees" class="border-t border-gray-200">
+                <td class="py-2 px-4">{{ employee.surname }}</td>
+                <td class="py-2 px-4">{{ employee.secondsurname }}</td>
+                <td class="py-2 px-4">{{ employee.firstname }}</td>
+                <td class="py-2 px-4">{{ employee.othersName }}</td>
+                <td class="py-2 px-4">{{ employee.countryEmployment }}</td>
+                <td class="py-2 px-4">{{ employee.typeIdentification }}</td>
+                <td class="py-2 px-4">{{ employee.identificationnumber }}</td>
+                <td class="py-2 px-4">{{ employee.email }}</td>
+                <td class="py-2 px-4">{{ employee.admissiondate | date }}</td>
+                <td class="py-2 px-4">{{ employee.area }}</td>
+                <td class="py-2 px-4">{{ employee.state }}</td>
+                <td class="py-2 px-4">{{ employee.registrationdate | date: 'dd/MM/yyyy HH:mm:ss' }}</td>
+                <td class="py-2 px-4">
+                    <button (click)="editEmployee(employee)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold mb-3 py-2 px-4 rounded">Editar</button>
+                    <button (click)="confirmDelete(employee)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- Controles de paginación -->
+    <div class="flex justify-center mt-4">
+        <button (click)="previousPage()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l">Anterior</button>
+        <button (click)="nextPage()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r">Siguiente</button>
+    </div>
+</div>
